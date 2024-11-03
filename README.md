@@ -1,4 +1,4 @@
-# Projet FastAPI - Ai-FastApi
+# Projet FastAPI - tp-Achat-FastApi
 
 Ce projet est une API REST développée avec FastAPI, qui inclut une structure modulaire, des dépendances essentielles, et les bonnes pratiques pour une gestion efficace du dépôt.
 
@@ -15,9 +15,9 @@ Ce projet est une API REST développée avec FastAPI, qui inclut une structure m
 ### 1. Pré-requis
 
 Avant de commencer, assurez-vous d'avoir les éléments suivants installés :
-- **Python 3.7+**
+- **Python 3.10+**
 - **Git** (pour le contrôle de version)
-- **Virtualenv** (ou utilisez `python -m venv-fastapi` pour les environnements virtuels)
+- **Virtualenv** (ou utilisez `python -m venv` pour les environnements virtuels)
 
 ---
 
@@ -32,7 +32,7 @@ Suivez les étapes ci-dessous pour configurer le projet FastAPI.
 
 Créer un environnement virtuel :
    ```bash
-   python -m venv-fastapi env
+   python -m venv env
    ```
 
 Activer l'environnement virtuel :
@@ -68,7 +68,7 @@ tpAchatFastAPI/
 │   └── ...
 ├── .github/
 │   └── workflows/
-│       └── mlops_pipeline.yml  # Nouveau : Pipeline GitHub Actions
+│       └──  ci_mlops_pipeline.yml  # Nouveau : Pipeline GitHub Actions
 ├── requirements.txt
 └── README.md
 
@@ -76,7 +76,7 @@ tpAchatFastAPI/
 ### 4. **lancer-lapplication** :
 
   ```bash
-  uvicorn app1.main:app1 --reload
+  uvicorn app.main:app --reload
   ```
 
 ### 5. **gestion-des-dépendances** :
@@ -84,6 +84,9 @@ tpAchatFastAPI/
 Installer les dépendances :
    ```bash
    pip install -r requirements.txt
+   
+   pip freeze > requirements.txt
+
    ```
 
 

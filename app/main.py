@@ -1,13 +1,9 @@
 from fastapi import FastAPI
-from app.api.schemas.schemas import PredictionRequest
-
-app = FastAPI()
+from app.api import prediction_routes
 
 
-@app.post("/predict")
-def test_predict(prediction_request: PredictionRequest):
+app = FastAPI(title="tpAchat FastAPI")
 
-    result = "prediction fais avec succes"
+# Inclure les routes de predictions
+app.include_router(prediction_routes.router)
 
-    # Retourner le résultat dans le format attendu
-    return {"result": result}
