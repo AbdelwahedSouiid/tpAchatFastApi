@@ -1,0 +1,17 @@
+venv-fastapi/
+
+
+# Fichiers de configuration de l'éditeur
+.vscode/
+.idea/
+
+# Fichiers Python compilés
+__pycache__/
+*.py[cod]
+
+# Configuration et logs
+*.env
+*.log
+
+# Autres fichiers inutiles
+.DS_Store
