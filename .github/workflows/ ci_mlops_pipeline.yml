@@ -19,8 +19,8 @@ jobs:
 
       - name: Build and push Docker image
         env:
-          REPOSITORY: nginx
-          IMAGE_TAG: latest
+          REPOSITORY: fastapi
+          IMAGE_TAG: tpAchat
         run: |
           docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/$REPOSITORY:$IMAGE_TAG .
           docker push ${{ secrets.DOCKERHUB_USERNAME }}/$REPOSITORY:$IMAGE_TAG
