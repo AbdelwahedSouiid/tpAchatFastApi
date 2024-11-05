@@ -5,7 +5,6 @@ import os
 file_path = 'ml/data/dataset.csv'
 processed_file_path = 'ml/data/processed_dataset.csv'
 
-
 def load_data():
     """Loads data from a CSV file if it exists, otherwise returns an empty DataFrame."""
     if os.path.exists(file_path):
@@ -17,26 +16,26 @@ def load_data():
         print("No data file found. Starting with an empty dataset.")
     return data
 
-
 def preprocess_data(data):
-    """Preprocesses the data by handling missing values and normalizing features."""
-    # Fill missing values with a default value, or remove rows with NaNs
-    data = data.dropna()  # Drops rows with missing values; use fillna if needed
-    print("Missing values handled.")
+    """Simplified preprocessing: handle missing values and basic normalization."""
+    # Fill missing values with the mean for simplicity
+    data.fillna(data.mean(), inplace=True)
+    print("Missing values filled.")
 
-    # Normalize numerical features (example for feature1 and feature2)
-    data['feature1'] = (data['feature1'] - data['feature1'].mean()) / data['feature1'].std()
-    data['feature2'] = (data['feature2'] - data['feature2'].mean()) / data['feature2'].std()
-    print("Features normalized.")
+    # Normalize numerical features using min-max normalization
+    if not data.empty:
+        data['feature1'] = (data['feature1'] - data['feature1'].min()) / (data['feature1'].max() - data['feature1'].min())
+        data['feature2'] = (data['feature2'] - data['feature2'].min()) / (data['feature2'].max() - data['feature2'].min())
+        print("Features normalized.")
+    else:
+        print("No data to normalize.")
 
     return data
-
 
 def save_processed_data(data):
     """Saves the preprocessed data to a new CSV file."""
     data.to_csv(processed_file_path, index=False)
     print(f"Preprocessed data saved to {processed_file_path}")
-
 
 if __name__ == "__main__":
     # Load existing data

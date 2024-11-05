@@ -2,7 +2,7 @@ from app.schemas.prediction import PredictionRequest
 
 from ml.predict import calculate_prediction
 
-
+from ml.preprocess import  load_data
 class PredictionService:
     def __init__(self):
         # Simulated database (list) to store predictions
