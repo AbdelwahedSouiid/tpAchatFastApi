@@ -45,17 +45,6 @@ jobs:
         run: |
           python ml/train.py  
 
-      - name: Save trained model
-        run: |
-          mkdir -p models
-          cp trained_model.pkl models/  # Replace with the actual path to your model file
-
-      - name: Upload Model Artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: trained_model
-          path: models/
-
   # Step 3: Docker Build and Push
 
   build-and-push:
