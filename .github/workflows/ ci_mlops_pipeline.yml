@@ -26,7 +26,8 @@ jobs:
 
       - name: Preprocess data
         run: |
-          python preprocess.py  
+          python ml/preprocess.py  # Use the correct path to the preprocess.py script
+
 
   # Step 2: Model Training and Evaluation
   train-model:
