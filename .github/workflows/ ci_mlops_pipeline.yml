@@ -32,7 +32,6 @@ jobs:
   # Step 2: Model Training and Evaluation
   train-model:
     runs-on: ubuntu-latest
-    needs: preprocess-data
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
