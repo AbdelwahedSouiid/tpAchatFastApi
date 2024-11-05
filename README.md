@@ -50,6 +50,9 @@ tpAchatFastAPI/
 │   │   └── prediction_routes.py # Nouveau : Route de prédiction
 │   ├── models/
 │   ├── schemas/
+│   │   └── prediction.py # Nouveau : Route de prédiction
+│   ├── services/
+│   │   └── prediction_service.py # Nouveau : Route de prédiction
 │   └── services/
 ├── ml/                         # Nouveau : Dossier pour les fichiers ML
 │   ├── __init__.py
@@ -57,10 +60,8 @@ tpAchatFastAPI/
 │   ├── predict.py              # Script pour effectuer des prédictions
 │   ├── preprocess.py           # Script de pré-traitement des données
 │   ├── model/                  # Modèles sauvegardés
-│   │   └── model.pkl           # Fichier de modèle entraîné
 │   └── data/                   # Données pour l'entraînement et les tests
-│       ├── train_data.csv
-│       └── test_data.csv
+│       
 ├── tests/                      # Nouveau : Tests unitaires et d'intégration
 │   ├── __init__.py
 │   ├── test_api.py             # Tests pour l’API
@@ -86,6 +87,8 @@ Installer les dépendances :
    pip install -r requirements.txt
    
    pip freeze > requirements.txt
+   
+   pip list
 
    ```
 

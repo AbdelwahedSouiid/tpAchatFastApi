@@ -1,6 +1,6 @@
-# app/services/prediction_service.py
-
 from app.schemas.prediction import PredictionRequest
+
+from ml.predict import calculate_prediction
 
 
 class PredictionService:
@@ -9,13 +9,8 @@ class PredictionService:
         self.predictions_db = []
 
     async def make_prediction(self, prediction_request: PredictionRequest):
-        # Example prediction logic (mockup)
-        # Let's assume that the prediction result is based on the length of feature1 and feature2
-        feature1_length = len(prediction_request.feature1)
-        feature2_length = len(prediction_request.feature2)
-
-        # Mock prediction calculation
-        prediction_result = feature1_length * 0.5 + feature2_length * 0.3
+        # Use the new calculate_prediction function for prediction
+        prediction_result = calculate_prediction(prediction_request.feature1, prediction_request.feature2)
 
         # Create a result object with input and output
         prediction_data = {
@@ -23,7 +18,6 @@ class PredictionService:
             "feature2": prediction_request.feature2,
             "prediction": prediction_result
         }
-
         # Store prediction result in the simulated database
         self.predictions_db.append(prediction_data)
 
