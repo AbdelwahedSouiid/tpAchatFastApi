@@ -1,7 +1,6 @@
 import pandas as pd
 import os
-from sklearn.preprocessing import LabelEncoder
-from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import LabelEncoder, StandardScaler
 
 # Define the path to the CSV file
 file_path = 'ml/data/dataset.csv'
@@ -15,23 +14,26 @@ def load_data():
         print("Data loaded successfully.")
     else:
         # Create an empty DataFrame if the file does not exist
-        data = pd.DataFrame(columns=['feature1', 'feature2', 'prediction_result'])
+        data = pd.DataFrame(columns=['feature1', 'feature2', 'prediction'])
         print("No data file found. Starting with an empty dataset.")
     return data
 
 
 def preprocess_data(data):
-    """Preprocesses the data by label encoding categorical variables and normalizing features."""
+    """Preprocesses the data by label encoding categorical variables and normalizing numerical features."""
 
     # Label encoding for categorical features (e.g., feature1)
     label_encoder = LabelEncoder()
     data['feature1'] = label_encoder.fit_transform(data['feature1'])
     print("Categorical feature 'feature1' encoded.")
 
-    # Normalize numerical features (example for feature2)
+    # Identify numeric columns for scaling
+    numeric_columns = data.select_dtypes(include=['float64', 'int64']).columns
     scaler = StandardScaler()
-    data['feature2'] = scaler.fit_transform(data[['feature2']])
-    print("Numerical feature 'feature2' normalized.")
+
+    # Apply scaling only to numeric columns
+    data[numeric_columns] = scaler.fit_transform(data[numeric_columns])
+    print(f"Numerical columns {list(numeric_columns)} normalized.")
 
     return data
 
