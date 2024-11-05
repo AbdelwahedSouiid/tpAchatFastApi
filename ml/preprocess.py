@@ -3,7 +3,6 @@ import os
 
 # Define the path to the CSV file
 file_path = 'ml/data/dataset.csv'
-processed_file_path = 'ml/data/processed_dataset.csv'
 
 def load_data():
     """Loads data from a CSV file if it exists, otherwise returns an empty DataFrame."""

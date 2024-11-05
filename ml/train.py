@@ -5,7 +5,7 @@ from sklearn.metrics import mean_squared_error, r2_score
 import joblib
 
 # Path to the processed dataset
-processed_file_path = 'ml/data/processed_dataset.csv'
+processed_file_path = 'ml/data/dataset.csv'
 model_file_path = 'models/trained_model.pkl'
 
 def load_data():
@@ -18,7 +18,7 @@ def train_model(data):
     """Trains a linear regression model on the dataset."""
     # Features and target variable
     X = data[['feature1', 'feature2']]  # You may need to convert categorical features
-    y = data['prediction_result']
+    y = data['prediction']
 
     # Convert categorical features to numerical (if necessary)
     X = pd.get_dummies(X, columns=['feature1', 'feature2'], drop_first=True)
