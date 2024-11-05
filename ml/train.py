@@ -5,8 +5,8 @@ from sklearn.metrics import mean_squared_error, r2_score
 import joblib
 
 # Path to the processed dataset
-processed_file = 'ml/data/dataset.csv'  # Ensure this is correct
-model_file_path = 'ml/models/trained_model.pkl'
+processed_file = 'ml/data/processed_dataset.csv'  # Ensure this is correct
+model_file_path = 'ml/models'
 
 def load_data():
     """Loads the preprocessed dataset."""

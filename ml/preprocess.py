@@ -26,6 +26,8 @@ def preprocess_data(data):
     label_encoder = LabelEncoder()
     data['feature1'] = label_encoder.fit_transform(data['feature1'])
     print("Categorical feature 'feature1' encoded.")
+    data['feature2'] = label_encoder.fit_transform(data['feature2'])
+    print("Categorical feature 'feature1' encoded.")
 
     # Identify numeric columns for scaling
     numeric_columns = data.select_dtypes(include=['float64', 'int64']).columns
